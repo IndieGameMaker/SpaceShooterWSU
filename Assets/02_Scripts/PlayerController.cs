@@ -19,16 +19,21 @@ public class PlayerController : MonoBehaviour
     private float h;
     private float r; // Mouse X 값을 저장할 변수
 
+    // Animator 컴포넌트를 할당할 변수선언
+    public Animator animator;
+
     void Start()
     {
-        Debug.Log("Start 메소드 호출");
+        // Generic 문법
+        animator = GetComponent<Animator>();
+        // animator = this.gameObject.GetComponent("Animator") as Animator; // Typecasting
     }
 
     // Update is called once per frame
     void Update()
     {
-        v = Input.GetAxisRaw("Vertical"); // w,s,up,down // -1.0f ~ 0.0f ~ +1.0f
-        h = Input.GetAxisRaw("Horizontal"); // a,d,left,right
+        v = Input.GetAxis("Vertical"); // w,s,up,down // -1.0f ~ 0.0f ~ +1.0f
+        h = Input.GetAxis("Horizontal"); // a,d,left,right
         r = Input.GetAxis("Mouse X"); // Mouse 좌우 이동 변위값
         // Debug.Log($"h={h}, v={v}");
 
