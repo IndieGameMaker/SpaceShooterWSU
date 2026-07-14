@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private void Animation()
     {
         // 애니메이션을 전후좌우 변경
-        _animator.SetFloat("v", v);
-        _animator.SetFloat("h", h);
+        _animator.SetFloat("forward", v);
+        _animator.SetFloat("strafe", h);
     }
 }
