@@ -13,9 +13,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 6.0f;
+    [SerializeField] private float turnSpeed = 200.0f;
 
     private float v;
     private float h;
+    private float r; // Mouse X 값을 저장할 변수
 
     void Start()
     {
@@ -27,19 +29,15 @@ public class PlayerController : MonoBehaviour
     {
         v = Input.GetAxisRaw("Vertical"); // w,s,up,down // -1.0f ~ 0.0f ~ +1.0f
         h = Input.GetAxisRaw("Horizontal"); // a,d,left,right
-        Debug.Log($"h={h}, v={v}");
-
-        // transform.position += 방향 * 속도 * 변위
-        //transform.position += Vector3.forward * 0.1f * v;
-        //transform.position += Vector3.right * 0.1f * h;
+        r = Input.GetAxis("Mouse X"); // Mouse 좌우 이동 변위값
+        // Debug.Log($"h={h}, v={v}");
 
         // 방향벡터 계산 (벡터의 덧셈연산)
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         // 벡터의 정규화 (Vector Normalize)
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
-
-        //transform.Translate(Vector3.forward * 0.1f * v);
-        //transform.Translate(Vector3.right * 0.1f * h);
+        // 회전처리
+        transform.Rotate(Vector3.up * Time.deltaTime * r * turnSpeed);
     }
 
     /* Vector3 shorthand
