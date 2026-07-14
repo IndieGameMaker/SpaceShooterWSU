@@ -628,6 +628,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 8
+  turnSpeed: 200
+  animator: {fileID: 0}
 --- !u!1 &1568929636
 GameObject:
   m_ObjectHideFlags: 0
