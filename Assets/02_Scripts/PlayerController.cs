@@ -12,6 +12,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed = 6.0f;
+
     private float v;
     private float h;
 
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
         // πÊ«‚∫§≈Õ ∞ËªÍ (∫§≈Õ¿« µ°º¿ø¨ªÍ)
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         // ∫§≈Õ¿« ¡§±‘»≠ (Vector Normalize)
-        transform.Translate(moveDir.normalized * 0.05f);
+        transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
 
         //transform.Translate(Vector3.forward * 0.1f * v);
         //transform.Translate(Vector3.right * 0.1f * h);
