@@ -7,6 +7,12 @@ public class FollowCam : MonoBehaviour
     [SerializeField] private float _distance = 10.0f;
     [SerializeField] private float _height = 3.0f;
 
+    private void Start()
+    {
+        // GameObject.Find("오브젝트명");
+        _target = GameObject.FindGameObjectWithTag("Player").transform.Find("CamPivot");
+    }
+
     private void LateUpdate()
     {
         // 위치 이동
