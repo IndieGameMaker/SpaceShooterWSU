@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         InputBinding();
         Locomotion();
+        Animation();
     }
 
     private void InputBinding()
@@ -50,5 +51,13 @@ public class PlayerController : MonoBehaviour
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
         // 회전처리
         transform.Rotate(Vector3.up * Time.deltaTime * r * turnSpeed);
+    }
+
+    private void Animation()
+    {
+        // v, h
+        // 애니메이션을 전후좌우 변경
+        _animator.SetFloat("v", v);
+        _animator.SetFloat("h", h);
     }
 }
