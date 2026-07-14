@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     // Animator 컴포넌트를 할당할 변수선언
     private Animator _animator;
 
+    // Animator Parameter Hash 추출
+    private readonly int _hashForward = Animator.StringToHash("forward");
+    private readonly int _hashStrafe = Animator.StringToHash("strafe");
+
     void Start()
     {
         // Generic 문법
@@ -56,7 +60,7 @@ public class PlayerController : MonoBehaviour
     private void Animation()
     {
         // 애니메이션을 전후좌우 변경
-        _animator.SetFloat("forward", v);
-        _animator.SetFloat("strafe", h);
+        _animator.SetFloat(_hashForward, v);
+        _animator.SetFloat(_hashStrafe, h);
     }
 }
