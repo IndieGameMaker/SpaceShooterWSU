@@ -9,8 +9,12 @@ public class FollowCam : MonoBehaviour
 
     private void LateUpdate()
     {
+        // 위치 이동
         transform.position = _target.position // 주인공의 위치
                             - (_target.forward * _distance) // 뒤로 물러날 좌표
                             + (Vector3.up * _height); // 위로 올라갈 좌표
+
+        // 주인공 바라보기
+        transform.LookAt(_target.position);
     }
 }
