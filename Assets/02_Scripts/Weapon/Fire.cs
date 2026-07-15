@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // Enum(열거형 변수)
 public enum WeaponType
@@ -42,9 +43,19 @@ public class Fire : MonoBehaviour
     // Co-routine 코루틴
     private IEnumerator ShowMuzzleFlash()
     {
+        // 텍스처 오프셋 변경
+        // (0,0) (0, 0.5) (0.5, 0) (0.5, 0.5)  0 ~ 0.5
+        // 랜덤값 추출
+        // Random.Range(from, to)
+        // Random.Range(0, 10)  => 0,1,2,...,9
+        // Random.Ragne(0.0f, 10.0f) => 0.0f, ... , 10.0f
+
+        Vector2 offset = new Vector2(Random.Range(0, 2), Random.Range(0, 2)) * 0.5f;
+        _muzzleFlash.material.mainTextureOffset = offset;
+
         _muzzleFlash.enabled = true;
         // Waitting...
-        yield return new WaitForSeconds(0.2f); 
+        yield return new WaitForSeconds(0.3f); 
         _muzzleFlash.enabled = false;
     }
 
