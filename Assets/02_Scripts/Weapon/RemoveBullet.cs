@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RemoveBullet : MonoBehaviour
 {
+    [SerializeField] private GameObject _sparkEffect;
+
     private void OnCollisionEnter(Collision collision)
     {
         //if (collision.collider.tag == "BULLET") // Garbage Collection 발생하는 코드
