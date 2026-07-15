@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
     [SerializeField] private Transform _firePos;
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private List<AudioClip> _fireSfx;
+    public int currentWeapon = 0;
 
     private void Update()
     {

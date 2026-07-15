@@ -277,7 +277,7 @@ GameObject:
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -440,7 +440,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
@@ -492,7 +492,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -1077,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.557
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalRotation.w
