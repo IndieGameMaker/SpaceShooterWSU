@@ -33,7 +33,7 @@ public class Fire : MonoBehaviour
             // 사운드 재생
             // _audioSource.Play(); // BGM
             // 연속 사운드 재생
-            _audioSource.PlayOneShot(_fireSfx[currentWeapon]);
+            _audioSource.PlayOneShot(_fireSfx[(int)currentWeapon]);
         }
     }
 }
