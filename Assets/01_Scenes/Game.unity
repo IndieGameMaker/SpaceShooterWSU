@@ -2141,9 +2141,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564952899118167738, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
+      propertyPath: m_Time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 564952899118167738, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ac66f56b8383064baaf0d5ac02d52a6, type: 2}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2151,7 +2159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: -6.34
       objectReference: {fileID: 0}
     - target: {fileID: 7150324148622588560, guid: 649fdaeb33e3bac49ae4d0f356dc0577, type: 3}
       propertyPath: m_LocalRotation.w
