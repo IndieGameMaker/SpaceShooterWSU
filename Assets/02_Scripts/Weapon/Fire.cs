@@ -1,12 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Enum(열거형 변수)
+public enum WeaponType
+{
+    Rifle,
+    SMG,
+    Shotgun
+}
+
 public class Fire : MonoBehaviour
 {
     [SerializeField] private Transform _firePos;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private List<AudioClip> _fireSfx;
-    public int currentWeapon = 0;
+    public WeaponType currentWeapon = WeaponType.Rifle;
 
     private AudioSource _audioSource;
 
