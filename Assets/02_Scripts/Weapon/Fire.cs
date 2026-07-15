@@ -53,6 +53,11 @@ public class Fire : MonoBehaviour
         Vector2 offset = new Vector2(Random.Range(0, 2), Random.Range(0, 2)) * 0.5f;
         _muzzleFlash.material.mainTextureOffset = offset;
 
+        // 스케일 변경
+        float scale = Random.Range(1.0f, 3.0f);
+        // 컴포넌트.transform
+        _muzzleFlash.transform.localScale = Vector3.one * scale;
+
         _muzzleFlash.enabled = true;
         // Waitting...
         yield return new WaitForSeconds(0.3f); 
