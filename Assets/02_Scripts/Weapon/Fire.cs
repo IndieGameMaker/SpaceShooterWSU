@@ -58,6 +58,13 @@ public class Fire : MonoBehaviour
         // 컴포넌트.transform
         _muzzleFlash.transform.localScale = Vector3.one * scale;
 
+        // 회전처리
+        float angle = Random.Range(0, 360);
+        // 오일러 각도를 쿼터니언 타입으로 변환
+        var rot = Quaternion.Euler(Vector3.forward * angle);
+        // 쿼터니언 타입의 각도를 지정
+        _muzzleFlash.transform.localRotation = rot;
+
         _muzzleFlash.enabled = true;
         // Waitting...
         yield return new WaitForSeconds(0.3f); 
