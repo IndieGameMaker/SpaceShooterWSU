@@ -9,6 +9,7 @@ public enum WeaponType
     Shotgun
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class Fire : MonoBehaviour
 {
     [SerializeField] private Transform _firePos;
