@@ -19,9 +19,12 @@ public class Fire : MonoBehaviour
 
     private AudioSource _audioSource;
 
+    private MeshRenderer _muzzleFlash;
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        _muzzleFlash = _firePos.GetComponentInChildren<MeshRenderer>();
     }
 
     private void Update()

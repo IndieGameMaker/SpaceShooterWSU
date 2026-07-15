@@ -11,6 +11,9 @@ public class FollowCam : MonoBehaviour
     {
         // GameObject.Find("오브젝트명");
         _target = GameObject.FindGameObjectWithTag("Player").transform.Find("CamPivot");
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void LateUpdate()
