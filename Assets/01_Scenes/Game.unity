@@ -300,6 +300,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoveBullet
   _sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
+--- !u!114 &321691689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321691683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526907ea092c2ec4186837767ceb72de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Barrel
 --- !u!4 &327621163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fb8b8a16fd3ec410a89c2880b5e18f47, type: 3}
@@ -811,6 +823,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: fa26a03195acbbb4baa84a100c771b13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 321691688}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: fa26a03195acbbb4baa84a100c771b13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 321691689}
   m_SourcePrefab: {fileID: 100100000, guid: fa26a03195acbbb4baa84a100c771b13, type: 3}
 --- !u!1001 &1147735391
 PrefabInstance:

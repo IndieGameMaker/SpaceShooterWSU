@@ -19,6 +19,8 @@ public class Barrel : MonoBehaviour
     private void ExpBarrel()
     {
         var rb = this.gameObject.AddComponent<Rigidbody>();
-        rb.AddForce(Vector3.up * 1000.0f);
+        rb.AddForce(Vector3.up * 1500.0f);
+
+        Destroy(this.gameObject, 3.0f);
     }
 }
