@@ -92,7 +92,8 @@ public class MonsterController : MonoBehaviour
                     Debug.Log("IDLE");
                     break;
                 case State.Trace:
-                    Debug.Log("TRACE");
+                    _agent.SetDestination(_playerTr.position);
+                    _agent.isStopped = false;
                     break;
                 case State.Attack:
                     Debug.Log("ATTACK");
