@@ -43,6 +43,7 @@ public class MonsterController : MonoBehaviour
     private readonly int _hashIsTrace = Animator.StringToHash("IsTrace");
     private readonly int _hashIsAttack = Animator.StringToHash("IsAttack");
     private readonly int _hashHit = Animator.StringToHash("Hit");
+    private readonly int _hashDie = Animator.StringToHash("Die");
 
     // Health
     private int _hp = 100;
@@ -114,6 +115,8 @@ public class MonsterController : MonoBehaviour
                     _animator.SetBool(_hashIsAttack, true);
                     break;
                 case State.Die:
+                    _animator.SetTrigger(_hashDie);
+                    _isDead = true;
                     break;
             }
 
@@ -129,6 +132,13 @@ public class MonsterController : MonoBehaviour
             Destroy(collision.gameObject); // 총알 삭제
             // 데미지 애니메이션 처리
             _animator.SetTrigger(_hashHit);
+
+            // Hp 차감
+            _hp -= 20;
+            if (_hp <= 0)
+            {
+                _state = State.Die;
+            }
         }
     }
 }
