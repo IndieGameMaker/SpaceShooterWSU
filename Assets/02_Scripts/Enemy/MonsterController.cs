@@ -39,7 +39,9 @@ public class MonsterController : MonoBehaviour
     private NavMeshAgent _agent;
     private Animator _animator;
 
+    // Animation Parameter Hash √ﬂ√‚
     private readonly int _hashIsTrace = Animator.StringToHash("IsTrace");
+    private readonly int _hashIsAttack = Animator.StringToHash("IsAttack");
 
     private void Start()
     {
