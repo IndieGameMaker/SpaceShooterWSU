@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /*
@@ -30,5 +31,33 @@ public class MonsterController : MonoBehaviour
     private Transform _playerTr;
     private Transform _monsterTr;
 
+    // 몬스터의 사망여부
+    [SerializeField] private bool _isDead = false;
 
+    private void Start()
+    {
+        _monsterTr = transform;
+        _playerTr = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (_playerTr == null)
+        {
+            // 방어코드
+            Debug.Log("Player가 없습니다.");
+        }
+    }
+
+    // 몬스터의 상태를 체크
+    private IEnumerator CheckMonsterState()
+    {
+        while (!_isDead) // 죽지 않았을 때
+        {
+            // 거리 계산 (주인공과 몬스터간의 거리)
+            float distance = Vector3.Distance(_playerTr.position, _monsterTr.position);
+            Debug.Log($"거리 : {distance}");
+            yield return new WaitForSeconds(0.3f);
+        }
+
+    }
+
+    // 몬스터의 상태에 따라 행동을 처리
 }
