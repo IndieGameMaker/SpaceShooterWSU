@@ -66,6 +66,18 @@ public class MonsterController : MonoBehaviour
         StartCoroutine(MonsterAction());
     }
 
+    private void OnEnable()
+    {
+        // 이벤트를 구독(Subscribe Event)
+        PlayerHealth.OnPlayerDie += this.YouWin;
+    }
+
+    private void OnDisable()
+    {
+        // 이벤트 구독해지(Unsubscribe Event)
+        PlayerHealth.OnPlayerDie -= this.YouWin;
+    }
+
     // 몬스터의 상태를 체크
     private IEnumerator CheckMonsterState()
     {
