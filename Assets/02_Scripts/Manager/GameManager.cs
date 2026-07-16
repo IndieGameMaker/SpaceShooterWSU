@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>(_points);
+    }
+
+    private void CreateMonster()
+    {
+        // 난수 발생
+        int idx = Random.Range(1, _points.Count);
+
+        Instantiate(_monsterPrefab, _points[idx].position, Quaternion.identity);
     }
 
 }
