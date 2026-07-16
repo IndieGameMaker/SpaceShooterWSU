@@ -58,12 +58,12 @@ public class MonsterController : MonoBehaviour
             // 거리 계산 (루트연산 없는 계산방식)
             float distance = (_playerTr.position - _monsterTr.position).sqrMagnitude;
             Debug.Log($"거리 : {distance}");
-
-            if (distance <= _attackDist) // 공격 사정거리 이내에 있는 경우
+            
+            if (distance <= _attackDist * _attackDist) // 공격 사정거리 이내에 있는 경우
             {
                 _state = State.Attack;
             }
-            else if (distance <= _traceDist) // 공격 사정거리보다 크고 추적사정거리 이내에 있는 경우
+            else if (distance <= _traceDist * _traceDist) // 공격 사정거리보다 크고 추적사정거리 이내에 있는 경우
             {
                 _state = State.Trace;
             }
@@ -72,7 +72,7 @@ public class MonsterController : MonoBehaviour
                 _state = State.Idle;
             }
 
-                yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
