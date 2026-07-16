@@ -7,8 +7,11 @@ public class PlayerHealth : MonoBehaviour
     private int _currHp = 100;
 
     // 델리게이트(Delegate: 대리자) => int sum; 함수타입 변수 = 함수;
-    public delegate void PlayerDieHandler();
-    public static event PlayerDieHandler OnPlayerDie;
+    // public delegate void PlayerDieHandler();
+    // public static event PlayerDieHandler OnPlayerDie;
+
+    public static event Action OnPlayerDie;
+    // public static event Action<int> OnScoreChanged;
 
     // IsTrigger 체크된 Collider가 충동했을때 호출되는 콜백메서드(Callback Function)
     private void OnTriggerEnter(Collider other)
