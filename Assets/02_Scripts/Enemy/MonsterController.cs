@@ -34,6 +34,8 @@ public class MonsterController : MonoBehaviour
     // 몬스터의 사망여부
     [SerializeField] private bool _isDead = false;
 
+    private WaitForSeconds ws = new WaitForSeconds(0.3f);
+
     private void Start()
     {
         _monsterTr = transform;
@@ -77,4 +79,11 @@ public class MonsterController : MonoBehaviour
     }
 
     // 몬스터의 상태에 따라 행동을 처리
+    private IEnumerator MonsterAction()
+    {
+        while (!_isDead)
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
 }
