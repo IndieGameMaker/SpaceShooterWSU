@@ -37,10 +37,14 @@ public class MonsterController : MonoBehaviour
 
     private WaitForSeconds ws = new WaitForSeconds(0.3f);
     private NavMeshAgent _agent;
+    private Animator _animator;
+
+    private readonly int _hashIsTrace = Animator.StringToHash("IsTrace");
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
         _monsterTr = transform;
         _playerTr = GameObject.FindGameObjectWithTag("Player")?.transform;
 
@@ -90,10 +94,14 @@ public class MonsterController : MonoBehaviour
             {
                 case State.Idle:
                     _agent.isStopped = true;
+                    _animator.SetBool(_hashIsTrace, false);
                     break;
                 case State.Trace:
+                    // Navigation 추적
                     _agent.SetDestination(_playerTr.position);
                     _agent.isStopped = false;
+                    // Animation 처리
+                    _animator.SetBool(_hashIsTrace, true);
                     break;
                 case State.Attack:
                     Debug.Log("ATTACK");
