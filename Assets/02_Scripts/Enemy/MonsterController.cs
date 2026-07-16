@@ -60,7 +60,6 @@ public class MonsterController : MonoBehaviour
             // float distance = Vector3.Distance(_playerTr.position, _monsterTr.position);
             // 거리 계산 (루트연산 없는 계산방식)
             float distance = (_playerTr.position - _monsterTr.position).sqrMagnitude;
-            Debug.Log($"거리 : {distance}");
             
             if (distance <= _attackDist * _attackDist) // 공격 사정거리 이내에 있는 경우
             {
