@@ -70,6 +70,9 @@ public class MonsterController : MonoBehaviour
     {
         while (!_isDead) // 죽지 않았을 때
         {
+            // 이미 사망한 경우는 코루틴 종료
+            if (_state == State.Die) yield break;
+
             // 거리 계산 (주인공과 몬스터간의 거리)
             // float distance = Vector3.Distance(_playerTr.position, _monsterTr.position);
             // 거리 계산 (루트연산 없는 계산방식)
@@ -103,6 +106,7 @@ public class MonsterController : MonoBehaviour
                     _agent.isStopped = true;
                     _animator.SetBool(_hashIsTrace, false);
                     break;
+
                 case State.Trace:
                     // Navigation 추적
                     _agent.SetDestination(_playerTr.position);
@@ -111,12 +115,17 @@ public class MonsterController : MonoBehaviour
                     _animator.SetBool(_hashIsAttack, false);
                     _animator.SetBool(_hashIsTrace, true);
                     break;
+
                 case State.Attack:
                     _animator.SetBool(_hashIsAttack, true);
                     break;
+
                 case State.Die:
                     _animator.SetTrigger(_hashDie);
+                    _agent.isStopped = true;
                     _isDead = true;
+                    // Collider 비활성화
+                    GetComponent<CapsuleCollider>().enabled = false;
                     break;
             }
 
