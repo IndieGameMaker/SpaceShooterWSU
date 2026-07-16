@@ -155,5 +155,9 @@ public class MonsterController : MonoBehaviour
     public void YouWin()
     {
         // TODO: Dance Animation »£√‚
+        _animator.SetTrigger(_hashPlayerDie);
+
+        _agent.isStopped = true;
+        StopAllCoroutines();
     }
 }
