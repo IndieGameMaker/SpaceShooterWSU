@@ -44,6 +44,7 @@ public class MonsterController : MonoBehaviour
     private readonly int _hashIsAttack = Animator.StringToHash("IsAttack");
     private readonly int _hashHit = Animator.StringToHash("Hit");
     private readonly int _hashDie = Animator.StringToHash("Die");
+    private readonly int _hashPlayerDie = Animator.StringToHash("PlayerDie");
 
     // Health
     private int _hp = 100;
@@ -149,5 +150,10 @@ public class MonsterController : MonoBehaviour
                 _state = State.Die;
             }
         }
+    }
+
+    public void YouWin()
+    {
+        // TODO: Dance Animation »£√‚
     }
 }
