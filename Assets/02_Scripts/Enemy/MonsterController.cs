@@ -48,6 +48,7 @@ public class MonsterController : MonoBehaviour
         }
 
         StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction());
     }
 
     // 몬스터의 상태를 체크
