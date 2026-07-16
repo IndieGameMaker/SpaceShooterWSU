@@ -20,7 +20,15 @@ public class MonsterController : MonoBehaviour
 {
     [SerializeField] private State _state;
     // 추적 사정거리
-    [SerializeField] private float _traceDist = 10.0f;
+    [SerializeField]
+    [Range(5.0f, 15.0f)]
+    private float _traceDist = 10.0f;
+
     // 공격 사정거리
     [SerializeField] private float _attackDist = 2.0f;
+
+    private Transform _playerTr;
+    private Transform _monsterTr;
+
+
 }
