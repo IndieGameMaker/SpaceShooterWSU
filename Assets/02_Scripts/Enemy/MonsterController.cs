@@ -42,6 +42,7 @@ public class MonsterController : MonoBehaviour
     // Animation Parameter Hash 추출
     private readonly int _hashIsTrace = Animator.StringToHash("IsTrace");
     private readonly int _hashIsAttack = Animator.StringToHash("IsAttack");
+    private readonly int _hashHit = Animator.StringToHash("Hit");
 
     private void Start()
     {
@@ -114,6 +115,17 @@ public class MonsterController : MonoBehaviour
             }
 
             yield return ws;
+        }
+    }
+
+    // 총알 피격 여부 확인
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("BULLET"))
+        {
+            Destroy(collision.gameObject); // 총알 삭제
+            // 데미지 애니메이션 처리
+            _animator.SetTrigger(_hashHit);
         }
     }
 }
