@@ -44,6 +44,9 @@ public class MonsterController : MonoBehaviour
     private readonly int _hashIsAttack = Animator.StringToHash("IsAttack");
     private readonly int _hashHit = Animator.StringToHash("Hit");
 
+    // Health
+    private int _hp = 100;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
