@@ -103,10 +103,11 @@ public class MonsterController : MonoBehaviour
                     _agent.SetDestination(_playerTr.position);
                     _agent.isStopped = false;
                     // Animation Ã³¸®
+                    _animator.SetBool(_hashIsAttack, false);
                     _animator.SetBool(_hashIsTrace, true);
                     break;
                 case State.Attack:
-                    Debug.Log("ATTACK");
+                    _animator.SetBool(_hashIsAttack, true);
                     break;
                 case State.Die:
                     break;
