@@ -28,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
         foreach (var monster in monsters)
         {
             // Monster 메소드를 호출
-            monster.GetComponent<MonsterController>().YouWin();
+            // monster.GetComponent<MonsterController>().YouWin();
+            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
         }
         
     }
