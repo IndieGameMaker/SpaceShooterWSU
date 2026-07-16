@@ -89,7 +89,7 @@ public class MonsterController : MonoBehaviour
             switch (_state)
             {
                 case State.Idle:
-                    Debug.Log("IDLE");
+                    _agent.isStopped = true;
                     break;
                 case State.Trace:
                     _agent.SetDestination(_playerTr.position);
