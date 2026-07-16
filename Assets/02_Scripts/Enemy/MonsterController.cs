@@ -74,7 +74,7 @@ public class MonsterController : MonoBehaviour
                 _state = State.Idle;
             }
 
-            yield return new WaitForSeconds(0.3f);
+            yield return ws;
         }
     }
 
@@ -83,7 +83,19 @@ public class MonsterController : MonoBehaviour
     {
         while (!_isDead)
         {
-            yield return new WaitForSeconds(0.3f);
+            switch (_state)
+            {
+                case State.Idle:
+                    break;
+                case State.Trace:
+                    break;
+                case State.Attack:
+                    break;
+                case State.Die:
+                    break;
+            }
+
+            yield return ws;
         }
     }
 }
