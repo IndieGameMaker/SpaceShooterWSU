@@ -44,6 +44,8 @@ public class MonsterController : MonoBehaviour
             // 방어코드
             Debug.Log("Player가 없습니다.");
         }
+
+        StartCoroutine(CheckMonsterState());
     }
 
     // 몬스터의 상태를 체크
@@ -52,11 +54,26 @@ public class MonsterController : MonoBehaviour
         while (!_isDead) // 죽지 않았을 때
         {
             // 거리 계산 (주인공과 몬스터간의 거리)
-            float distance = Vector3.Distance(_playerTr.position, _monsterTr.position);
+            // float distance = Vector3.Distance(_playerTr.position, _monsterTr.position);
+            // 거리 계산 (루트연산 없는 계산방식)
+            float distance = (_playerTr.position - _monsterTr.position).sqrMagnitude;
             Debug.Log($"거리 : {distance}");
-            yield return new WaitForSeconds(0.3f);
-        }
 
+            if (distance <= _attackDist) // 공격 사정거리 이내에 있는 경우
+            {
+                _state = State.Attack;
+            }
+            else if (distance <= _traceDist) // 공격 사정거리보다 크고 추적사정거리 이내에 있는 경우
+            {
+                _state = State.Trace;
+            }
+            else
+            {
+                _state = State.Idle;
+            }
+
+                yield return new WaitForSeconds(0.3f);
+        }
     }
 
     // 몬스터의 상태에 따라 행동을 처리
