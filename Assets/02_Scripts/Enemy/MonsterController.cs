@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 /*
  NPC AI 구현 방법
@@ -35,9 +36,11 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private bool _isDead = false;
 
     private WaitForSeconds ws = new WaitForSeconds(0.3f);
+    private NavMeshAgent _agent;
 
     private void Start()
     {
+        _agent = GetComponent<NavMeshAgent>();
         _monsterTr = transform;
         _playerTr = GameObject.FindGameObjectWithTag("Player")?.transform;
 
