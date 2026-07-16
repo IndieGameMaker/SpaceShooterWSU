@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>(_points);
+
+        // Invoke("ÇÔ¼ö");
+        InvokeRepeating("CreateMonster", 2.0f, _spawnTime);
     }
 
     private void CreateMonster()

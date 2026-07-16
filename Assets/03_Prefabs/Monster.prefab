@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterController
   _state: 0
-  _traceDist: 10
+  _traceDist: 50
   _attackDist: 2
   _isDead: 0
 --- !u!195 &2869928602553788026
