@@ -86,10 +86,13 @@ public class MonsterController : MonoBehaviour
             switch (_state)
             {
                 case State.Idle:
+                    Debug.Log("IDLE");
                     break;
                 case State.Trace:
+                    Debug.Log("TRACE");
                     break;
                 case State.Attack:
+                    Debug.Log("ATTACK");
                     break;
                 case State.Die:
                     break;
