@@ -18,7 +18,7 @@ public enum State
     Die
 }
 
-public class MonsterController : MonoBehaviour
+public class MonsterController : MonoBehaviour, IDamagable
 {
     [SerializeField] private State _state;
     // 추적 사정거리
@@ -182,5 +182,17 @@ public class MonsterController : MonoBehaviour
 
         _agent.isStopped = true;
         StopAllCoroutines();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        // 데미지 애니메이션 처리
+        _animator.SetTrigger(_hashHit);
+
+        _hp -= damage;
+        if (_hp <= 0)
+        {
+            _state = State.Die;
+        }
     }
 }
