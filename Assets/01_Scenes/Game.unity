@@ -2657,7 +2657,7 @@ MonoBehaviour:
   currentWeapon: 0
   _monsterLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!82 &1396362990
 AudioSource:
   m_ObjectHideFlags: 0
