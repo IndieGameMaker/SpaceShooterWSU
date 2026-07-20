@@ -33,8 +33,18 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
+        // Ray
+        Debug.DrawRay(_firePos.position, _firePos.forward * 10f, Color.green);
+
         if (Input.GetMouseButtonDown(0))
         {
+            // Raycasting...
+            if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f))
+            {
+                // 몬스터 정보 출력
+                Debug.Log(hit.collider.gameObject.name);
+            }
+
             FireBullet();
             StartCoroutine(ShowMuzzleFlash());
         }
@@ -75,7 +85,8 @@ public class Fire : MonoBehaviour
     {
         // 총알 생성
         // Instantiate(생성할객체, 위치, 각도)
-        Instantiate(_bulletPrefab, _firePos.position, _firePos.rotation);
+        // Instantiate(_bulletPrefab, _firePos.position, _firePos.rotation);
+
         // 사운드 재생
         // _audioSource.Play(); // BGM
         // 연속 사운드 재생

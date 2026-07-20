@@ -49,7 +49,7 @@ public class MonsterController : MonoBehaviour
     // Health
     private int _hp = 100;
 
-    private void Start()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
@@ -61,15 +61,15 @@ public class MonsterController : MonoBehaviour
             // 방어코드
             Debug.Log("Player가 없습니다.");
         }
-
-        StartCoroutine(CheckMonsterState());
-        StartCoroutine(MonsterAction());
     }
 
     private void OnEnable()
     {
         // 이벤트를 구독(Subscribe Event)
         PlayerHealth.OnPlayerDie += this.YouWin;
+
+        StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction());
     }
 
     private void OnDisable()
@@ -153,6 +153,7 @@ public class MonsterController : MonoBehaviour
         this.gameObject.SetActive(false);
         _isDead = false;
         _hp = 100;
+        _state = State.Idle;
         GetComponent<CapsuleCollider>().enabled = true;
     }
 

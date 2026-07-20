@@ -395,6 +395,8 @@ MonoBehaviour:
   _spawnTime: 3
   _monsterPrefab: {fileID: 1865289524355203259, guid: 08f3dd87b12933b4b99da78d61ffd31a, type: 3}
   _points: []
+  maxPool: 5
+  monsterPool: []
 --- !u!4 &192071053
 Transform:
   m_ObjectHideFlags: 0
