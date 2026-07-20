@@ -139,11 +139,21 @@ public class MonsterController : MonoBehaviour
                     _isDead = true;
                     // Collider 비활성화
                     GetComponent<CapsuleCollider>().enabled = false;
+
+                    Invoke(nameof(MonsterDie), 3.0f);
                     break;
             }
 
             yield return ws;
         }
+    }
+
+    private void MonsterDie()
+    {
+        this.gameObject.SetActive(false);
+        _isDead = false;
+        _hp = 100;
+        GetComponent<CapsuleCollider>().enabled = true;
     }
 
     // 총알 피격 여부 확인
