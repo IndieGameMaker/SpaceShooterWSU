@@ -9,6 +9,13 @@ using Random = UnityEngine.Random;
  - 남발 금지...
  */
 
+
+/*
+    Object Pooling (IObjectPool)
+ 
+    - Instantiate / Destory (GC) 
+ */
+
 public class GameManager : MonoBehaviour
 {
     // Singleton 변수
@@ -21,6 +28,10 @@ public class GameManager : MonoBehaviour
     // Spawn Point 배열
     [SerializeField] private List<Transform> _points = new List<Transform>();
     // [SerializeField] private List<Transform> _points = new ();
+
+    // Object Pool List
+    [SerializeField] private int maxPool = 20;
+    [SerializeField] private List<GameObject> monsterPool;
 
     private bool _isGameOver;
 
@@ -57,9 +68,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //var temp = GameManager.Instance.IsGameOver;
-
-
         Instance = this;
     }
 
@@ -69,6 +77,17 @@ public class GameManager : MonoBehaviour
 
         // Invoke("함수");
         InvokeRepeating(nameof(CreateMonster), 2.0f, _spawnTime);
+    }
+
+    private void CreateMonsterPool()
+    {
+        for (int i=0; i<maxPool; i++)
+        {
+            var monster = Instantiate(_monsterPrefab);
+            monster.name = $"Monster_{i:00}";
+            monster.SetActive(false);
+            monsterPool.Add(monster);
+        }
     }
 
     private void CreateMonster()
