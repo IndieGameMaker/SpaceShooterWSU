@@ -20,6 +20,8 @@ public class Fire : MonoBehaviour
     [SerializeField] private List<AudioClip> _fireSfx;
     public WeaponType currentWeapon = WeaponType.Rifle;
 
+    [SerializeField] private LayerMask _monsterLayer;
+
     private AudioSource _audioSource;
 
     private MeshRenderer _muzzleFlash;
@@ -39,7 +41,9 @@ public class Fire : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Raycasting...
-            if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f))
+            // 1 << 8 => 256
+            // 1 << 8 | 1 << 10
+            if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f, _monsterLayer))
             {
                 // 몬스터 정보 출력
                 Debug.Log(hit.collider.gameObject.name);

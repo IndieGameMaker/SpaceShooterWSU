@@ -2655,6 +2655,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3988c7241ff434c2a900f22726ee7a08, type: 3}
   - {fileID: 8300000, guid: e0fb72457183d4665afc7b1b90c9e01b, type: 3}
   currentWeapon: 0
+  _monsterLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!82 &1396362990
 AudioSource:
   m_ObjectHideFlags: 0
