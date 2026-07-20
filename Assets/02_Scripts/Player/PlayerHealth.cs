@@ -25,6 +25,12 @@ public class PlayerHealth : MonoBehaviour
                 // 이벤트를 발행(Event Raise)
                 OnPlayerDie?.Invoke();
 
+                // GameManager 몬스터 생성 중지
+                GameManager.Instance.IsGameOver = true;
+
+                // GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver = true;
+
+
                 // PlayerDie();
             }
         }
