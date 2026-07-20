@@ -163,15 +163,15 @@ public class MonsterController : MonoBehaviour, IDamagable
         if (collision.collider.CompareTag("BULLET"))
         {
             Destroy(collision.gameObject); // 총알 삭제
-            // 데미지 애니메이션 처리
-            _animator.SetTrigger(_hashHit);
+            //// 데미지 애니메이션 처리
+            //_animator.SetTrigger(_hashHit);
 
-            // Hp 차감
-            _hp -= 20;
-            if (_hp <= 0)
-            {
-                _state = State.Die;
-            }
+            //// Hp 차감
+            //_hp -= 20;
+            //if (_hp <= 0)
+            //{
+            //    _state = State.Die;
+            //}
         }
     }
 

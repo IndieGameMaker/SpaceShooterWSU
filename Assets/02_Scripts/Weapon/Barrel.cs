@@ -7,16 +7,16 @@ public class Barrel : MonoBehaviour, IDamagable
     [SerializeField] private GameObject _expEffect;
     private int _hitCount = 0;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("BULLET"))
-        {
-            if (++_hitCount >= 3)
-            {
-                ExpBarrel();
-            }
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("BULLET"))
+    //    {
+    //        if (++_hitCount >= 3)
+    //        {
+    //            ExpBarrel();
+    //        }
+    //    }
+    //}
 
     private void ExpBarrel()
     {

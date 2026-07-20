@@ -90,7 +90,7 @@ public class Fire : MonoBehaviour
     {
         // 총알 생성
         // Instantiate(생성할객체, 위치, 각도)
-        // Instantiate(_bulletPrefab, _firePos.position, _firePos.rotation);
+        Instantiate(_bulletPrefab, _firePos.position, _firePos.rotation);
 
         // 사운드 재생
         // _audioSource.Play(); // BGM
