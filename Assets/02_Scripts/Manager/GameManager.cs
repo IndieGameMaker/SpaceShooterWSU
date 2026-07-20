@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        CreateMonsterPool();
     }
 
     private void Start()
@@ -95,7 +96,18 @@ public class GameManager : MonoBehaviour
         // 난수 발생
         int idx = Random.Range(1, _points.Count);
 
-        Instantiate(_monsterPrefab, _points[idx].position, Quaternion.identity);
+        // Instantiate(_monsterPrefab, _points[idx].position, Quaternion.identity);
+        foreach (var monster in monsterPool)
+        {
+            if (monster.activeSelf) continue;
+
+            monster.transform.position = _points[idx].position;
+            monster.transform.rotation 
+                = Quaternion.LookRotation(Vector3.zero - _points[idx].position);
+
+            monster.SetActive(true);
+            break;
+        }
     }
 
 }
