@@ -46,7 +46,8 @@ public class Fire : MonoBehaviour
             if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f, _monsterLayer))
             {
                 // 몬스터 정보 출력
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
+                hit.collider.GetComponent<IDamagable>()?.TakeDamage(25);
             }
 
             FireBullet();
