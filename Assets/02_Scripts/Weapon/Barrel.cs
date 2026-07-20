@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Barrel : MonoBehaviour
+public class Barrel : MonoBehaviour, IDamagable
 {
     [SerializeField] private GameObject _expEffect;
     private int _hitCount = 0;
@@ -30,5 +30,13 @@ public class Barrel : MonoBehaviour
 
         var obj = Instantiate(_expEffect, transform.position, Quaternion.identity);
         Destroy(obj, 5.0f);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (++_hitCount >= 3)
+        {
+            ExpBarrel();
+        }
     }
 }
