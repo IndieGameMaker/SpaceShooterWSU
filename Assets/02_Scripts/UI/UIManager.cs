@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public void OnStartButtonClick()
     {
         // ¾À ·ÎµùÃ³¸®
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 }

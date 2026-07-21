@@ -85,8 +85,9 @@ public class Fire : MonoBehaviour
         _muzzleFlash.transform.localRotation = rot;
 
         // Muzzle Light
-        float intensity = Random.Range(2.0f, 8.0f);
         _muzzleFlash.enabled = true;
+
+        float intensity = Random.Range(2.0f, 8.0f);
         _muzzleLight.intensity = intensity;
         
         // Waitting...
