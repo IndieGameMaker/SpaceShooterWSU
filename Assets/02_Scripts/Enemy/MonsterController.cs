@@ -21,6 +21,8 @@ public enum State
 public class MonsterController : MonoBehaviour, IDamagable
 {
     [SerializeField] private State _state;
+    [SerializeField] private MonsterSO _monsterSO;
+
     // 추적 사정거리
     [SerializeField]
     [Range(5.0f, 50.0f)]
