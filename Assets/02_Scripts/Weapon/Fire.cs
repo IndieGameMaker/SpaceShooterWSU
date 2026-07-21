@@ -38,12 +38,15 @@ public class Fire : MonoBehaviour
     private void OnEnable()
     {
         _actions.Enable();
-        _actions.Player.Attack.performed += OnFire; 
+        //_actions.Player.Attack.performed += OnFire;
+        //_actions.Player.Attack.canceled += OnFireCancel;
+        _actions.Player.Attack.started += OnFire;
     }
 
     private void OnDisable()
     {
-        _actions.Player.Attack.performed -= OnFire;
+        _actions.Player.Attack.started -= OnFire;
+        //_actions.Player.Attack.performed -= OnFire;
         _actions.Disable();
     }
 

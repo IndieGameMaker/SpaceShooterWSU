@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         Vector2 move = _moveAction.action.ReadValue<Vector2>();
         v = move.y;
         h = move.x;
+        r = Input.GetAxis("Mouse X");
 
         // πÊ«‚∫§≈Õ ∞ËªÍ (∫§≈Õ¿« µ°º¿ø¨ªÍ)
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
