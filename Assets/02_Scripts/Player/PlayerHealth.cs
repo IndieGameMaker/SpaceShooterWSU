@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private Image _hpBar;
+    // [SerializeField] private Image _hpBar;
 
     private const int _maxHp = 100;
     private int _currHp = 100;
@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     // public static event PlayerDieHandler OnPlayerDie;
 
     public static event Action OnPlayerDie;
+    public static event Action<int,int> OnHpChanged;
+
     // public static event Action<int> OnScoreChanged;
 
     // IsTrigger 체크된 Collider가 충동했을때 호출되는 콜백메서드(Callback Function)
@@ -24,8 +26,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log($"펀치: {other.gameObject.name}");
             _currHp -= 10;
 
-            // Hpbar FillAmount 변경
-            _hpBar.fillAmount = (float)_currHp / (float)_maxHp;
+            OnHpChanged?.Invoke(_currHp, _maxHp);
 
             if (_currHp <= 0)
             {
