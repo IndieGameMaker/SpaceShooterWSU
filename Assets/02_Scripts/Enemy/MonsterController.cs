@@ -140,6 +140,9 @@ public class MonsterController : MonoBehaviour, IDamagable
                     // Collider 비활성화
                     GetComponent<CapsuleCollider>().enabled = false;
 
+                    // KillCount 증가
+                    ++GameManager.Instance.killCount;
+
                     Invoke(nameof(MonsterDie), 3.0f);
                     break;
             }

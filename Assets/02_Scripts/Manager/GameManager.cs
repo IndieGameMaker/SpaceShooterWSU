@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> monsterPool;
 
     private bool _isGameOver;
+
+    //[NonSerialized]
+    [HideInInspector]
+    public int killCount = 0;
 
     // 프로퍼티(Property) : 내부 변수를 보호하고 들어오는 값의 정합성을 체크할 수 있는 장점
     public bool IsGameOver

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Observer Fattern 옵저버 패턴
 public class HUDManager : MonoBehaviour
 {
     [SerializeField] private Image _hpBar;
