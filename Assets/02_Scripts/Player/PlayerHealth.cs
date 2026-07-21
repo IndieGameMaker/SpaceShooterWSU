@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int _maxHp = 100;
+    [SerializeField] private Image _hpBar;
+
+    private const int _maxHp = 100;
     private int _currHp = 100;
 
     // 델리게이트(Delegate: 대리자) => int sum; 함수타입 변수 = 함수;
@@ -20,6 +23,10 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log($"펀치: {other.gameObject.name}");
             _currHp -= 10;
+
+            // Hpbar FillAmount 변경
+            _hpBar.fillAmount = (float)_currHp / (float)_maxHp;
+
             if (_currHp <= 0)
             {
                 // 이벤트를 발행(Event Raise)
