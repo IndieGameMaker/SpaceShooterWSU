@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             killCount += value;
             totalScore = killCount * 20;
             PlayerPrefs.SetInt("TOT_SCORE", totalScore);
+            PlayerPrefs.SetInt("KILL_COUNT", killCount);
 
             _score.text = $"SCORE: {totalScore:00000}";
         }
@@ -94,6 +95,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // 기록 불러오기
+        killCount = PlayerPrefs.GetInt("KILL_COUNT", 0);
+        totalScore = PlayerPrefs.GetInt("TOT_SCORE", 0);
+        _score.text = $"SCORE: {totalScore:00000}";
+        // PlayerPrefs.DeleteAll();
+
         GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>(_points);
 
         // Invoke("함수");
