@@ -59,9 +59,11 @@ public class PlayerController : MonoBehaviour
     private void Locomotion()
     {
         Vector2 move = _moveAction.action.ReadValue<Vector2>();
+        v = move.y;
+        h = move.x;
 
         // πÊ«‚∫§≈Õ ∞ËªÍ (∫§≈Õ¿« µ°º¿ø¨ªÍ)
-        Vector3 moveDir = (Vector3.forward * move.y) + (Vector3.right * move.x);
+        Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         // ∫§≈Õ¿« ¡§±‘»≠ (Vector Normalize)
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
         // »∏¿¸√≥∏Æ
