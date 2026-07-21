@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     // Object Pool List
     [SerializeField] private int maxPool = 20;
     [SerializeField] private List<GameObject> monsterPool;
+    [SerializeField] private TextMeshProUGUI _score;
 
     private bool _isGameOver;
 
@@ -40,15 +42,18 @@ public class GameManager : MonoBehaviour
     //Property
     public int KillCount
     {
-        get => killCount;
+        //get => killCount;
         set
         {
             killCount += value;
-            totalScore += killCount * 20;
+            totalScore = killCount * 20;
+            PlayerPrefs.SetInt("TOT_SCORE", totalScore);
+
+            _score.text = $"SCORE: {totalScore:00000}";
         }
     }
 
-    private int totalScore;
+    public int totalScore;
 
     // 프로퍼티(Property) : 내부 변수를 보호하고 들어오는 값의 정합성을 체크할 수 있는 장점
     public bool IsGameOver
