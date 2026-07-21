@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_moveAction.action.ReadValue<Vector2>());
-        
         //InputBinding();
         Locomotion();
         Animation();
@@ -60,8 +58,10 @@ public class PlayerController : MonoBehaviour
 
     private void Locomotion()
     {
+        Vector2 move = _moveAction.action.ReadValue<Vector2>();
+
         // πÊ«‚∫§≈Õ ∞ËªÍ (∫§≈Õ¿« µ°º¿ø¨ªÍ)
-        Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
+        Vector3 moveDir = (Vector3.forward * move.y) + (Vector3.right * move.x);
         // ∫§≈Õ¿« ¡§±‘»≠ (Vector Normalize)
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
         // »∏¿¸√≥∏Æ
