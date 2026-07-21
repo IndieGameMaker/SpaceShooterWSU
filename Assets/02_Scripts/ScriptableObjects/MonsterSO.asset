@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16443881084e0de4bba42e8699d05cec, type: 3}
   m_Name: MonsterSO
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSO
-  traceDist: 10
+  traceDist: 50
   attackDist: 2

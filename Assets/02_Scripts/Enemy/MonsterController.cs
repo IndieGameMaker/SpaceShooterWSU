@@ -23,14 +23,6 @@ public class MonsterController : MonoBehaviour, IDamagable
     [SerializeField] private State _state;
     [SerializeField] private MonsterSO _monsterSO;
 
-    // 추적 사정거리
-    [SerializeField]
-    [Range(5.0f, 50.0f)]
-    private float _traceDist = 10.0f;
-
-    // 공격 사정거리
-    [SerializeField] private float _attackDist = 2.0f;
-
     private Transform _playerTr;
     private Transform _monsterTr;
 
@@ -93,11 +85,11 @@ public class MonsterController : MonoBehaviour, IDamagable
             // 거리 계산 (루트연산 없는 계산방식)
             float distance = (_playerTr.position - _monsterTr.position).sqrMagnitude;
             
-            if (distance <= _attackDist * _attackDist) // 공격 사정거리 이내에 있는 경우
+            if (distance <= _monsterSO.attackDist * _monsterSO.attackDist) // 공격 사정거리 이내에 있는 경우
             {
                 _state = State.Attack;
             }
-            else if (distance <= _traceDist * _traceDist) // 공격 사정거리보다 크고 추적사정거리 이내에 있는 경우
+            else if (distance <= _monsterSO.traceDist * _monsterSO.traceDist) // 공격 사정거리보다 크고 추적사정거리 이내에 있는 경우
             {
                 _state = State.Trace;
             }

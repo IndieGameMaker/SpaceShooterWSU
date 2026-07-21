@@ -39,6 +39,7 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
+
         // Ray
         Debug.DrawRay(_firePos.position, _firePos.forward * 10f, Color.green);
 

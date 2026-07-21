@@ -169,8 +169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterController
   _state: 0
+  _monsterSO: {fileID: 11400000, guid: eba73a614564caa49bd5904e3c384d6b, type: 2}
   _traceDist: 50
-  _attackDist: 2
+  _attackDist: 2.39
   _isDead: 0
 --- !u!195 &2869928602553788026
 NavMeshAgent:

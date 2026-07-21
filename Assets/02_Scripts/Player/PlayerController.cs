@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 /**
  * Vector º¤ÅÍ
@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 6.0f;
     [SerializeField] private float turnSpeed = 200.0f;
+
+    [SerializeField] private InputActionReference _moveAction;
 
     private float v;
     private float h;
@@ -31,11 +33,20 @@ public class PlayerController : MonoBehaviour
         // Generic ¹®¹ý
         _animator = GetComponent<Animator>();
         // animator = this.gameObject.GetComponent("Animator") as Animator; // Typecasting
+        
+        _moveAction.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _moveAction.action.Disable();
     }
 
     void Update()
     {
-        InputBinding();
+        Debug.Log(_moveAction.action.ReadValue<Vector2>());
+        
+        //InputBinding();
         Locomotion();
         Animation();
     }
