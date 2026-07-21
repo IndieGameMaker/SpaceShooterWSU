@@ -141,7 +141,7 @@ public class MonsterController : MonoBehaviour, IDamagable
                     GetComponent<CapsuleCollider>().enabled = false;
 
                     // KillCount ¡ı∞°
-                    ++GameManager.Instance.killCount;
+                    GameManager.Instance.KillCount += 1;
 
                     Invoke(nameof(MonsterDie), 3.0f);
                     break;

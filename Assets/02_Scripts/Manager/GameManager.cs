@@ -36,9 +36,19 @@ public class GameManager : MonoBehaviour
 
     private bool _isGameOver;
 
-    //[NonSerialized]
-    [HideInInspector]
-    public int killCount = 0;
+    private int killCount = 0;
+    //Property
+    public int KillCount
+    {
+        get => killCount;
+        set
+        {
+            killCount += value;
+            totalScore += killCount * 20;
+        }
+    }
+
+    private int totalScore;
 
     // 프로퍼티(Property) : 내부 변수를 보호하고 들어오는 값의 정합성을 체크할 수 있는 장점
     public bool IsGameOver
