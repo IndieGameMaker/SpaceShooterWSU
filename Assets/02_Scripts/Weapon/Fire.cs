@@ -49,7 +49,18 @@ public class Fire : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext ctx)
     {
-        Debug.Log($"ctx={ctx}");
+        // Raycasting...
+        // 1 << 8 => 256
+        // 1 << 8 | 1 << 10
+        if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f, _monsterLayer))
+        {
+            // 몬스터 정보 출력
+            //Debug.Log(hit.collider.gameObject.name);
+            hit.collider.GetComponent<IDamagable>()?.TakeDamage(25);
+        }
+
+        FireBullet();
+        StartCoroutine(ShowMuzzleFlash());
     }
 
     private void Start()
@@ -64,25 +75,8 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-
         // Ray
         Debug.DrawRay(_firePos.position, _firePos.forward * 10f, Color.green);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            // Raycasting...
-            // 1 << 8 => 256
-            // 1 << 8 | 1 << 10
-            if (Physics.Raycast(_firePos.position, _firePos.forward, out var hit, 10.0f, _monsterLayer))
-            {
-                // 몬스터 정보 출력
-                //Debug.Log(hit.collider.gameObject.name);
-                hit.collider.GetComponent<IDamagable>()?.TakeDamage(25);
-            }
-
-            FireBullet();
-            StartCoroutine(ShowMuzzleFlash());
-        }
     }
 
     // Co-routine 코루틴
