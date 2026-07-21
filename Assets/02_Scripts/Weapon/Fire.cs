@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 // Enum(열거형 변수)
@@ -26,6 +27,30 @@ public class Fire : MonoBehaviour
 
     private MeshRenderer _muzzleFlash;
     private Light _muzzleLight;
+
+    private InputSystem_Actions _actions;
+
+    private void Awake()
+    {
+        _actions = new InputSystem_Actions();
+    }
+
+    private void OnEnable()
+    {
+        _actions.Enable();
+        _actions.Player.Attack.performed += OnFire; 
+    }
+
+    private void OnDisable()
+    {
+        _actions.Player.Attack.performed -= OnFire;
+        _actions.Disable();
+    }
+
+    private void OnFire(InputAction.CallbackContext ctx)
+    {
+        Debug.Log($"ctx={ctx}");
+    }
 
     private void Start()
     {
