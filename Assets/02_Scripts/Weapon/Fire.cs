@@ -25,12 +25,16 @@ public class Fire : MonoBehaviour
     private AudioSource _audioSource;
 
     private MeshRenderer _muzzleFlash;
+    private Light _muzzleLight;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _muzzleFlash = _firePos.GetComponentInChildren<MeshRenderer>();
         _muzzleFlash.enabled = false;
+
+        _muzzleLight = _firePos.GetComponentInChildren<Light>();
+        _muzzleLight.intensity = 0.0f;
     }
 
     private void Update()
@@ -80,10 +84,16 @@ public class Fire : MonoBehaviour
         // 쿼터니언 타입의 각도를 지정
         _muzzleFlash.transform.localRotation = rot;
 
+        // Muzzle Light
+        float intensity = Random.Range(2.0f, 8.0f);
         _muzzleFlash.enabled = true;
+        _muzzleLight.intensity = intensity;
+        
         // Waitting...
         yield return new WaitForSeconds(0.3f); 
+
         _muzzleFlash.enabled = false;
+        _muzzleLight.intensity = 0.0f;
     }
 
     private void FireBullet()
