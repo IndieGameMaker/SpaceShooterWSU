@@ -3035,7 +3035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a07b8d2b9fde2d4b983049821609ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  _hpBar: {fileID: 1714282662}
 --- !u!1001 &1507373766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3344,6 +3343,7 @@ GameObject:
   - component: {fileID: 1685534736}
   - component: {fileID: 1685534735}
   - component: {fileID: 1685534734}
+  - component: {fileID: 1685534738}
   m_Layer: 5
   m_Name: HUD Canvas
   m_TagString: Untagged
@@ -3435,6 +3435,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1685534738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685534733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da62c2230950dc4188714ef8f42157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDManager
+  _hpBar: {fileID: 1714282662}
 --- !u!1 &1714282660
 GameObject:
   m_ObjectHideFlags: 0
